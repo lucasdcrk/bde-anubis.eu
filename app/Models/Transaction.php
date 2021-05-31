@@ -17,4 +17,9 @@ class Transaction extends Model
             $query->admin_id = $query->admin_id ?? auth()->user()->id;
         });
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

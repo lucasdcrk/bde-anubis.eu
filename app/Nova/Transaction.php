@@ -45,11 +45,11 @@ class Transaction extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            BelongsTo::make('Étudiant', 'user_id'),
+            BelongsTo::make('User'),
 
-            Text::make('Libellé'),
+            Text::make('Description'),
 
-            Number::make('Montant')
+            Number::make('Amount')
         ];
     }
 
