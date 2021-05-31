@@ -57,6 +57,10 @@ class User extends Resource
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
+            Text::make('Solde', function () {
+                return $this->balance;
+            }),
+
             Boolean::make('Admin', 'is_admin'),
 
             Password::make('Password')
