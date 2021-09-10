@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -79,9 +80,15 @@ class AuthController extends Controller
                     $user->email = $account->getMail();
                     $user->password = Hash::make(bin2hex(random_bytes(2)));
                     $user->save();
-                }
 
-                $user = User::where('email', $account->getMail())->first();
+                    $user = User::where('email', $account->getMail())->first();
+
+                    $user->ownedTeams()->save(Team::forceCreate([
+                        'user_id' => $user->id,
+                        'name' => 'Personnel',
+                        'personal_team' => true,
+                    ]));
+                }
 
                 Auth::loginUsingId($user->id);
 
