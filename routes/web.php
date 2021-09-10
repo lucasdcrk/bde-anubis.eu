@@ -24,6 +24,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
+Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+Route::get('callback', [\App\Http\Controllers\AuthController::class, 'callback'])->name('callback');
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
