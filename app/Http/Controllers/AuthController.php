@@ -77,7 +77,7 @@ class AuthController extends Controller
                     $user = new User();
                     $user->name = $account->getDisplayName();
                     $user->email = $account->getMail();
-                    $user->password = Hash::make(hex2bin(random_bytes(2)));
+                    $user->password = Hash::make(bin2hex(random_bytes(2)));
                     $user->save();
                 }
 
