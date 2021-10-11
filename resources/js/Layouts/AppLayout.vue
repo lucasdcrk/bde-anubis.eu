@@ -108,10 +108,6 @@
                                             Gestion de compte
                                         </div>
 
-                                        <jet-dropdown-link :href="route('profile.show')">
-                                            Profil
-                                        </jet-dropdown-link>
-
                                         <jet-dropdown-link href="/nova/dashboards/main">
                                             Nova
                                         </jet-dropdown-link>
@@ -171,10 +167,6 @@
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <jet-responsive-nav-link :href="route('profile.show')" :active="route().current('profile.show')">
-                                Profil
-                            </jet-responsive-nav-link>
-
                             <jet-responsive-nav-link :href="route('api-tokens.index')" :active="route().current('api-tokens.index')" v-if="$page.props.jetstream.hasApiFeatures">
                                 API Tokens
                             </jet-responsive-nav-link>
